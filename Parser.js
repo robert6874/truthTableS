@@ -75,7 +75,7 @@ export class Parser {
             let disJunction = this.parse_disjunction();
             while (this.currenToken.kind == TOKEN_KIND.IMPLICATION) {
                 this.currenToken = this.lexer.nextToken();
-                let right_identifier = this.parse_conjunction();
+                let right_identifier = this.parse_disjunction();
                 let newImplication = new IMPLICATION_NODE(disJunction, right_identifier);
                 disJunction = newImplication;
                 this.list_subexpression.push(disJunction);
